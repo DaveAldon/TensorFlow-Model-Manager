@@ -1,7 +1,7 @@
 import tensorflow as tf
 import time
 
-one_step_model = tf.saved_model.load('one_step')
+one_step_model = tf.saved_model.load('models/one_step')
 
 """ start = time.time()
 states = None
@@ -20,7 +20,7 @@ print('\nRun time:', end - start) """
 
 start = time.time()
 states = None
-next_char = tf.constant(['RACHAEL:'])
+next_char = tf.constant(['ROMEO: Juliet is like the'])
 result = [next_char]
 
 for n in range(1000):
