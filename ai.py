@@ -6,7 +6,7 @@ import os
 import time
 
 path_to_file = tf.keras.utils.get_file(
-    'shakespeare.txt', 'shakespeare.txt')
+    'shakespeare.txt', 'training_data/shakespeare.txt')
 
 # Read, then decode for py2 compat.
 text = open(path_to_file, 'rb').read().decode(encoding='utf-8')
