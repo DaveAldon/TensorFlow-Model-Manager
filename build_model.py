@@ -5,8 +5,8 @@ import numpy as np
 import os
 import time
 
-path_to_file = tf.keras.utils.get_file(
-    'shakespeare.txt', 'training_data/shakespeare.txt')
+#path_to_file = tf.keras.utils.get_file('shakespeare.txt', 'training_data/shakespeare.txt')
+path_to_file = 'training_data/output.txt'
 
 # Read, then decode for py2 compat.
 text = open(path_to_file, 'rb').read().decode(encoding='utf-8')
@@ -163,7 +163,7 @@ checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_prefix,
     save_weights_only=True)
 
-EPOCHS = 10
+EPOCHS = 30
 
 history = model.fit(dataset, epochs=EPOCHS, callbacks=[checkpoint_callback])
 # print(history)
@@ -217,7 +217,7 @@ class OneStep(tf.keras.Model):
 one_step_model = OneStep(model, chars_from_ids, ids_from_chars)
 start = time.time()
 states = None
-next_char = tf.constant(['ROMEO:'])
+next_char = tf.constant(['hey'])
 result = [next_char]
 
 for n in range(1000):
@@ -230,4 +230,4 @@ end = time.time()
 print(result[0].numpy().decode('utf-8'), '\n\n' + '_'*80)
 print('\nRun time:', end - start)
 
-tf.saved_model.save(one_step_model, 'one_step')
+tf.saved_model.save(one_step_model, 'homie_step')

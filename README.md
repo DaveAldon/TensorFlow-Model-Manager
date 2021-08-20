@@ -16,3 +16,4 @@ My code for creating/interacting with tensorflow v2+ models on an M1 Mac
 ### Commands to remember
 - `conda activate tf_m1` to create your python environment
 - `conda deactive` to get out of the environment
+- `dotnet DiscordChatExporter.Cli.dll export -t <token> -c <channel> -f PlainText -o unparsed.txt`

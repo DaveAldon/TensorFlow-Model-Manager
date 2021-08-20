@@ -1,14 +1,14 @@
 import tensorflow as tf
 import time
 
-one_step_model = tf.saved_model.load('models/one_step')
+one_step_model = tf.saved_model.load('one_step')
 
 start = time.time()
 states = None
-next_char = tf.constant(['ROMEO: Juliet is like the'])
+next_char = tf.constant(['arianna'])
 result = [next_char]
 
-for n in range(1000):
+for n in range(100):
     next_char, states = one_step_model.generate_one_step(
         next_char, states=states)
     result.append(next_char)
